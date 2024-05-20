@@ -1,8 +1,7 @@
-import { defineKarman, defineAPI } from "@vic0627/karman";
+import { defineKarman, defineAPI, getType } from "@vic0627/karman";
 import productSchema from "./schema/product-schema";
 import limitAndSortSchema from "./schema/limit-and-sort-schema";
-import { concatAll, map, of } from "rxjs";
-import definePayloadDef from "./utils/define-payload-def";
+import { concatAll, map, of, from } from "rxjs";
 
 export default defineKarman({
     root: true,
@@ -13,33 +12,24 @@ export default defineKarman({
         "Content-Type": "application/json; charset=utf-8",
     },
     api: {
-        getProductImages: defineAPI({
+        getProducts: defineAPI({
             url: "products",
             payloadDef: limitAndSortSchema
                 .mutate()
                 .setPosition("query")
                 .setDefault("limit", () => 10)
                 .setOptional().def,
-            dto: null as unknown as (typeof productSchema.def)[],
-            onSuccess(res) {
-                return of(...res.data).pipe(
-                    map((value) => fetch(value.image)),
-                    concatAll(),
-                    map((image) => image.blob()),
-                    concatAll()
-                );
-            },
+            dto: getType([productSchema.def]),
         }),
         utilTest: defineAPI({
-            payloadDef: definePayloadDef(
-                "id",
-                {
+            payloadDef: {
+                id: {
                     position: "path",
                     required: true,
                     rules: ["int", { min: 1 }],
+                    type: 1,
                 },
-                0
-            ),
+            },
         }),
     },
 });

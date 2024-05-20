@@ -1,7 +1,7 @@
 import { Observable, map } from "rxjs";
 
 const obs = new Observable<number>((subscriber) => {
-    let t: number;
+    let t: number | NodeJS.Timeout;
     try {
         subscriber.next(1);
         subscriber.next(2);

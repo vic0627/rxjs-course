@@ -13,7 +13,7 @@
     "vite": "^5.2.0"
   },
   "dependencies": {
-    "@vic0627/karman": "^1.2.4",
+    "@vic0627/karman": "^1.3.0",
     "rxjs": "^7.8.1"
   }
 }

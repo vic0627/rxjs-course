@@ -21,7 +21,8 @@ export default defineSchemaType("Product", {
     title: {
         required,
         rules: ["string", { min: 1, max: 20, measurement: "length" }],
-    } as unknown as string,
+        type: "",
+    },
     /**
      * pricing
      * @min 1
@@ -29,7 +30,8 @@ export default defineSchemaType("Product", {
     price: {
         required,
         rules: ["number", { min: 1 }],
-    } as unknown as number,
+        type: 1,
+    },
     /**
      * description of product
      * @min 1
@@ -38,14 +40,16 @@ export default defineSchemaType("Product", {
     description: {
         required,
         rules: ["string", { min: 1, max: 100, measurement: "length" }],
-    } as unknown as string,
+        type: "",
+    },
     /**
      * product image
      */
     image: {
         required,
         rules: "string",
-    } as unknown as string,
+        type: "",
+    },
     category: {
         required: true,
         rules: [
@@ -62,5 +66,6 @@ export default defineSchemaType("Product", {
                     throw new ValidationError("invalid category");
             }),
         ],
-    } as unknown as Category,
+        type: "" as Category,
+    },
 });

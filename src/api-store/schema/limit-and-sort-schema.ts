@@ -12,7 +12,7 @@ export default defineSchemaType("LimitAndSort", {
     /**
      * number of return transactions
      */
-    limit: { required, rules: ["int", { min: 1 }] } as unknown as number,
+    limit: { required, rules: ["int", { min: 1 }], type: 1 },
     /**
      * sorting strategy
      */
@@ -27,5 +27,6 @@ export default defineSchemaType("LimitAndSort", {
                     );
             }),
         ],
-    } as unknown as Sort,
+        type: "" as Sort,
+    },
 });
