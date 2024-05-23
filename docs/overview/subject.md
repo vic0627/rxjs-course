@@ -74,7 +74,7 @@ observable.subscribe(subject);
 
 > 一個群播的 Observable 會在底層用一個 Subject 來使數個 Observers 看到相同的 Observable 的執行。
 
-在底層，群播的運算元 `multicast` 是這樣運作的：Observers 會訂閱一個層的 Subject，然後 Subject 會訂閱來源 Observable。下面的範例與上面的範例類似，都是使用 `observable.subscribe(subject)`：
+在底層，群播的運算子 `multicast` 是這樣運作的：Observers 會訂閱一個層的 Subject，然後 Subject 會訂閱來源 Observable。下面的範例與上面的範例類似，都是使用 `observable.subscribe(subject)`：
 
 ```js
 import { from, Subject, multicast } from "rxjs";
@@ -312,7 +312,7 @@ subject.complete();
 // observerB: 5
 ```
 
-`AsyncSubject` 與 `last()` 運算元相似，因為它只會在 `complete` 通知發生時，才會發送一個單一值。
+`AsyncSubject` 與 `last()` 運算子相似，因為它只會在 `complete` 通知發生時，才會發送一個單一值。
 
 ## Void Subject
 

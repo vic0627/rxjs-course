@@ -20,11 +20,12 @@
 -   [Operators](./docs/overview/operators.md)
 -   [Subscription](./docs/overview/subscription.md)
 -   [Subjects](./docs/overview/subject.md)
+-   [Scheduler](./docs/overview/scheduler.md)
 -   ... and more
 
 ## 簡介
 
-RxJS 是一款套件，以可觀察序列構成非同步以及事件驅動的程式，它擁有一個核心類型（`Observable`）、數個輔助類型（`Observer`, `Schedulers`, `Subjects`）以及運算元（`map`, `filter`, `reduce`, `every`, etc），可以透過這些類型與運算元以集合的方式來處理非同步事件。
+RxJS 是一款套件，以可觀察序列構成非同步以及事件驅動的程式，它擁有一個核心類型（`Observable`）、數個輔助類型（`Observer`, `Schedulers`, `Subjects`）以及運算子（`map`, `filter`, `reduce`, `every`, etc），可以透過這些類型與運算子以集合的方式來處理非同步事件。
 
 > 想像 RxJS 是用於「事件」的 Lodash
 
@@ -78,11 +79,11 @@ fromEvent(document, "click")
     .subscribe((count) => console.log(`Clicked ${count} times`));
 ```
 
-> `scan` 運算元就像是陣列的 `reduce` 方法，它需要一個傳遞給回調函數的值，而返回值將會成為下次回調函數運行時的新的傳遞值。
+> `scan` 運算子就像是陣列的 `reduce` 方法，它需要一個傳遞給回調函數的值，而返回值將會成為下次回調函數運行時的新的傳遞值。
 
 ### 程式流
 
-RxJS 擁有全系列的運算元，它們可以幫助你控制事件要怎麼在 Observables 間流動。
+RxJS 擁有全系列的運算子，它們可以幫助你控制事件要怎麼在 Observables 間流動。
 
 這是以往使用原生 JS 時，若是要限制每秒至多只能觸發一次點擊事件的做法：
 

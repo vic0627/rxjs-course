@@ -252,7 +252,7 @@ console.log("後");
 
 ## 剖析 Observable
 
-Observables 會透過 `new Observable` 或一個建立運算元來**建立**，並使用 Observer 來**訂閱**，**執行**時 Observable 會傳遞 `next`、`error`、`complete` 等通知給 Observer，並且 Observer 能夠**處置** Observable 的執行。
+Observables 會透過 `new Observable` 或一個建立運算子來**建立**，並使用 Observer 來**訂閱**，**執行**時 Observable 會傳遞 `next`、`error`、`complete` 等通知給 Observer，並且 Observer 能夠**處置** Observable 的執行。
 
 Observable 的核心關注點：
 
@@ -277,7 +277,7 @@ const observable = new Observable(function subscribe(subscriber) {
 });
 ```
 
-> 雖然可以用 `new Observable` 來建立 Observable，但更常見的情況是透過建立運算元（`of`, `from`, `interval`, etc）來建立。
+> 雖然可以用 `new Observable` 來建立 Observable，但更常見的情況是透過建立運算子（`of`, `from`, `interval`, etc）來建立。
 
 上述的範例中，`subscribe` 函式是描述 Observable 最重要的部分，而下面接續介紹訂閱行為。
 
