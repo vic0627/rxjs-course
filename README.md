@@ -21,7 +21,7 @@
 -   [Subscription](./docs/overview/subscription.md)
 -   [Subjects](./docs/overview/subject.md)
 -   [Scheduler](./docs/overview/scheduler.md)
--   ... and more
+-   [Marble Testing](./docs/overview/marble-testing.md)
 
 ## 簡介
 
@@ -51,7 +51,7 @@ document.addEventListener("click", () => console.log("Clicked!"));
 使用 RxJS 的話要用 observable 替代：
 
 ```js
-import { fronEvent } from "rxjs";
+import { fromEvent } from "rxjs";
 
 fromEvent(document, "click").subscribe(() => console.log("Clicked!"));
 ```
